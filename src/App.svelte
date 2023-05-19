@@ -1,78 +1,71 @@
 <script>
-  import {onMount} from 'svelte'
-  import logo from './assets/logo.png'
-  import banner from './assets/banner.jpg'
-  import fgBanner from './assets/fg-banner.png'
+  import { onMount } from "svelte";
+  import logo from "./assets/logo.png";
+  import banner from "./assets/banner.jpg";
+  import fgBanner from "./assets/fg-banner.png";
 
-  let scrollY = 0
-  let expandNavbar = ''
+  let scrollY = 0;
+  let expandNavbar = "";
   onMount(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  })
-  function handleScroll(){
-    scrollY = window.scrollY
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+  function handleScroll() {
+    scrollY = window.scrollY;
   }
   $: {
-    expandNavbar = scrollY > 600 ? 'expand' : ''
+    expandNavbar = scrollY > 500 ? "expand" : "";
   }
 </script>
 
 <main>
-  <header class="{expandNavbar}">
+  <header class={expandNavbar}>
     <nav class="container">
-      <div class="navbar-brand" style="background-image: url({logo});"></div>
+      <div class="navbar-brand" style="background-image: url({logo});" />
       <div class="navbar-content">
-        <a href="#" class="nav-link">Product</a>
-        <a href="#" class="nav-link">#</a>
-        <a href="#" class="nav-link">#</a>
+        <a href="/#" class="nav-link">Product</a>
+        <a href="/#" class="nav-link">#</a>
+        <a href="/#" class="nav-link">#</a>
       </div>
     </nav>
   </header>
   <div class="banner">
-    <div class="bg-banner" style="background-image: url({banner});">
-    </div>
-    <div class="fg-banner container" style="background-image: url({fgBanner});">
-    </div>
+    <div class="bg-banner" style="background-image: url({banner});" />
+    <div
+      class="fg-banner container"
+      style="background-image: url({fgBanner});"
+    />
     <section class="container">
       <h1 class="banner-title">Hotdog Enak</h1>
     </section>
   </div>
   <section class="content container">
-    <h1 class="title">Lorem ipsum dolor, sit amet</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iste possimus dolor non necessitatibus assumenda perspiciatis odio maiores magni aspernatur. Quaerat, rem atque! Facilis natus nisi porro totam dolorem unde.
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum nisi minima est odit alias eius soluta, tempora facilis vero eaque earum neque dolorum pariatur! Expedita quam illum qui vel!
-    </p>
+    <h1>The Future of Hotdog Starts Here</h1>
+    <p />
   </section>
   <footer class="bg-primary">
-    <div class="footer-map">
-      google map
-    </div>
+    <div class="footer-map">google map</div>
     <div class="container">
       <div class="footer-content">
-        <h1 class="footer-title">
-          Stalk us
-        </h1>
-        Instagram
-        Youtube
+        <h1 class="footer-title">Stalk us</h1>
+        Instagram Youtube
       </div>
     </div>
   </footer>
 </main>
 
 <style>
-  @media(max-width: 1440px){
-    .container{
+  @media (max-width: 1440px) {
+    .container {
       width: 100% !important;
     }
     /* .banner{
       height: 420px !important;
     } */
   }
-  header{
+  header {
     position: fixed;
     top: 0;
     width: 100vw;
@@ -83,24 +76,25 @@
     background: none;
     z-index: 1;
   }
-  nav{
+  nav {
     padding: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
-  main, .banner{
+  main,
+  .banner {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  main{
+  main {
     position: relative;
     justify-content: flex-start;
     min-height: 2560px;
   }
-  footer{
+  footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -108,30 +102,30 @@
     flex-direction: column;
     align-items: center;
   }
-  footer .container{
+  footer .container {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .container{
+  .container {
     width: 1440px;
   }
-  .navbar-brand{
+  .navbar-brand {
     width: 160px;
     height: 160px;
     box-shadow: none;
     transition: all 1s ease;
     border-radius: 100px;
   }
-  .navbar-brand:hover{
-    box-shadow: #FFBD02 1px 1px 16px;
+  .navbar-brand:hover {
+    box-shadow: #ffbd02 1px 1px 16px;
   }
-  .navbar-content{
+  .navbar-content {
     display: flex;
     flex-direction: row;
     gap: 16px;
   }
-  .nav-link{
+  .nav-link {
     text-decoration: none;
     color: white;
     background-color: rgba(100, 100, 100, 0.5);
@@ -139,67 +133,75 @@
     font-size: large;
     transition: all 0.2s ease;
   }
-  .nav-link:hover{
-    background-color: #FFBD02;
+  .nav-link:hover {
+    background-color: #ffbd02;
     color: white !important;
   }
-  .expand{
-    box-shadow: #aaa 1px 1px 5px;
-    background-color: #FFBD02;
+  .expand {
+    box-shadow: #ffbd02 1px 1px 5px;
+    background-color: #ffbd02;
   }
-  .expand .nav-link{
+  .expand .nav-link {
     background-color: transparent;
-    color: #55431C;
+    color: #55431c;
   }
-  .expand .container .navbar-brand{
+  .expand .container .navbar-brand {
     width: 72px;
     height: 72px;
   }
-  .banner{
+  .banner {
     position: relative;
     width: 100%;
     /* height: 720px; */
     height: 100vh;
   }
-  .fg-banner, .bg-banner{
+  .fg-banner,
+  .bg-banner {
     position: absolute;
-    top: 0;
+    top: -10px;
     width: 100%;
     height: 100%;
   }
-  .bg-banner{
+  .bg-banner {
     filter: blur(10px);
     transition: all 1s ease;
   }
-  .fg-banner{
+  .fg-banner {
     transition: all 0.2s ease;
   }
-  .banner:hover .fg-banner{
+  .banner:hover .fg-banner {
     transform: scale(1.02);
   }
   /* .banner:hover .bg-banner{
     filter: blur(5px) grayscale(100%);
   } */
-  .banner .container{
+  .banner .container {
+    width: 100%;
     position: absolute;
-    bottom: 16px;
+    bottom: 0;
   }
-  .banner-title{
+  .banner .container:nth-of-type(1){
+    background-color: #ffbd02;
+  }
+  .banner-title {
     font-size: 120px;
-    color: white;
+    width: 1440px;
+    margin: auto;
+    color: #55431c;
+    background-color: #ffbd02;
   }
-  .title{
+  .title {
     font-size: 120px;
   }
-  .bg-primary{
-    background-color: #FFBD02;
+  .bg-primary {
+    background-color: #ffbd02;
   }
-  .footer-map{
+  .footer-map {
     width: 100%;
     height: 320px;
     background-color: #aaa;
   }
-  .content{
+  .content {
     margin-bottom: 420px;
   }
 </style>
